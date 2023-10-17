@@ -8,9 +8,8 @@ public class API {
 	private String status;
 	private String country;
 	private String message;
-	public String getStatus() {
-		return status;
-	}
+	private String isa;
+	
 	public API(String json)
 	{
 		JsonParser parse = new JsonParser();
@@ -28,7 +27,13 @@ public class API {
 		{
 			message = jsonObject.get("message").getAsString();
 		}
+		if (jsonObject.has("isa")){
+			isa = jsonObject.get("isa").getAsString();
+		}
 		
+	}
+	public String getStatus() {
+		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
@@ -45,6 +50,12 @@ public class API {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+	public void setISA(String isa){
+		this.isa = isa;
+	}
+	public String getISA()
+	{
+		return isa;
+	}	
 	
 }
